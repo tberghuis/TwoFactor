@@ -60,7 +60,18 @@ compose.desktop {
       targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
       packageName = "dev.tberghuis.twofactor"
       packageVersion = "1.0.0"
+
+
+      modules("java.sql")
     }
+
+    buildTypes.release.proguard {
+      isEnabled = false
+      obfuscate = false
+      configurationFiles.from("rules.pro")
+    }
+
+
   }
 }
 

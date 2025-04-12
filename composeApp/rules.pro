@@ -1,0 +1,2 @@
+-dontoptimize
+-keep class org.sqlite.** { *; }
