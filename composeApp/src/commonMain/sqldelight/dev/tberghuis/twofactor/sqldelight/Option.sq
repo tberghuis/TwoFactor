@@ -1,0 +1,12 @@
+-- future: can I put each table in it's own sq file?
+CREATE TABLE IF NOT EXISTS OptionTable (
+    key TEXT NOT NULL PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+insertOption:
+INSERT INTO OptionTable(key, value)
+VALUES (?, ?);
+
+readOption:
+SELECT OptionTable.value FROM OptionTable WHERE key = ?;

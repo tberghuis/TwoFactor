@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS AccountTable (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    secret TEXT NOT NULL
+);
+
+readAllAccount:
+SELECT AccountTable.*
+FROM AccountTable;
+
+selectById:
+SELECT AccountTable.* FROM AccountTable WHERE id=:id;
+
+saveAccount:
+INSERT OR REPLACE INTO AccountTable(id, name, secret)
+VALUES (?, ?, ?);
+
+deleteAccount:
+DELETE FROM AccountTable WHERE id = ?;
