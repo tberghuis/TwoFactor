@@ -31,7 +31,8 @@ class LockScreenVm(
     val dbPasswordHash = optionRepository.readOption("SALTED_PASSWORD_HASH")
     if (dbPasswordHash == null) {
       setPassword()
-      // todo navigate AccountList
+      GLOBAL_PASSWORD = password
+      onSuccess()
       return
     }
     val salt = optionRepository.readOption("SALT")
@@ -41,7 +42,6 @@ class LockScreenVm(
     }
 
     if (dbPasswordHash == hashPassword(password, salt)) {
-      // todo success navigate AccountList
       GLOBAL_PASSWORD = password
       onSuccess()
     } else {
