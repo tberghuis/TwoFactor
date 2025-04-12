@@ -60,18 +60,16 @@ compose.desktop {
       targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
       packageName = "dev.tberghuis.twofactor"
       packageVersion = "1.0.0"
-
-
+      // fix java.lang.NoClassDefFoundError: java/sql/DriverManager
       modules("java.sql")
     }
 
     buildTypes.release.proguard {
+      // don't know what i am doing, just trying to get release working
       isEnabled = false
       obfuscate = false
       configurationFiles.from("rules.pro")
     }
-
-
   }
 }
 
